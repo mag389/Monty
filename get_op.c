@@ -14,6 +14,8 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 	};
 	int i = 0;
 
+	if (op_code == NULL)
+		return (NULL);
 	while (i < 2)
 	{
 		printf("in the while in get_op\n");

@@ -16,8 +16,6 @@ int main(int argc, char *argv[])
 	void (*f)(stack_t **, unsigned int);
 
 	head = NULL;
-/*	opcode = malloc(sizeof(char *));*/
-	printf("argv1: %s and argc%d\n",argv[1], argc); 
 	if (argc != 2)
 	{
 		perror("USAGE: monty file\n");
@@ -34,20 +32,15 @@ int main(int argc, char *argv[])
 	while ((l = getline(&linebuf, &n, filenum)) != -1)
 	{
 		printf("line number: %d: %d\n", line, l);
-	/*	l = getline(&linebuf, &n, filenum) == -1;*/
 		printf("---l is %d\n", l);
 		if (l != -1 || l == 0)
 		{
 			opcode = strtok(linebuf, " \n\t\v\r\a");
 			f = get_op(opcode);
 			printf("past assigning function\n");
-/*			if (!f)*//* take away later maybe*/
-			/*	exit(EXIT_FAILURE);*/
 			if (f)
 				f(&head, line);
 			printf("----. linebuf:%s> opcode:%s\n", linebuf, opcode);
-/*			if (linebuf)
-				free(linebuf);*/
 			printf("past free in f section\n");
 			line++;
 		}
@@ -55,6 +48,7 @@ int main(int argc, char *argv[])
 		{
 /*			free stack*/
 /*			if (linebuf)*/
+			printf("+++++++++++++++++++++++++++");
 			free(linebuf);
 			line = 0;
 		}
