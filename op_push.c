@@ -11,24 +11,24 @@ void push(stack_t **stack, unsigned int line_num)
 	char *argnum;
 	int argval;
 
-	printf("into push\n");
+/*	printf("into push\n");*/
 	argnum = strtok(NULL, " \n\t\v\r\a");
 	if (argnum == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_num);
 		exit(EXIT_FAILURE);
 	}
-	printf("past argnum strtok assignment\n");
+/*	printf("past argnum strtok assignment\n");*/
 	if (isnum(argnum) == 0)
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_num);
 		exit(EXIT_FAILURE);
 	}
-	printf("past isnum if\n");
+/*	printf("past isnum if\n");*/
 	argval = atoi(argnum);
-	printf("past atoi part: %d\n", argval);
+/*	printf("past atoi part: %d\n", argval);*/
 	add_dnode_int_end(stack, argval);
-	printf("past add dnode end\n");
+/*	printf("past add dnode end\n");*/
 }
 /**
 * add_dnode_int_end - adds node to end of list
@@ -40,21 +40,21 @@ void *add_dnode_int_end(stack_t **head, int n)
 {
 	stack_t *newtail, *temp;
 
-	printf("into add dnode end\n");
+/*	printf("into add dnode end\n");*/
 	newtail = malloc(sizeof(stack_t));
 	if (!newtail)
 	{
 		dprintf(STDERR_FILENO, "malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	printf("past newtail malloc\n");
+/*	printf("past newtail malloc\n");*/
 	newtail->n = n;
 	newtail->next = NULL;
 	newtail->prev = NULL;
-	printf("past newtail assignment\n");
+/*	printf("past newtail assignment\n");*/
 	if (*head == NULL)
 	{
-		printf("into changing head\n");
+/*		printf("into changing head\n");*/
 		*head = newtail;
 	}
 	else
@@ -65,7 +65,7 @@ void *add_dnode_int_end(stack_t **head, int n)
 		temp->next = newtail;
 		newtail->prev = temp;
 	}
-	printf("past head assignment/loop\n");
+/*	printf("past head assignment/loop\n");*/
 	return (newtail);
 }
 

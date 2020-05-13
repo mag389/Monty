@@ -20,7 +20,8 @@ void free_stack_t(stack_t *head)
 
 /**
 * pall - prints list
-* @head: the head of the list
+* @stack: the head of the list
+* @line_num: the line number of the original file
 * Return: void
 */
 void pall(stack_t **stack, unsigned int line_num)
