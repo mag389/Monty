@@ -48,4 +48,5 @@ void *add_dnode_int_end(stack_t **head, int n);
 int isnum(char *argnum);
 
 void free_stack_t(stack_t *head);
+void pall(stack_t **stack, unsigned int line_num);
 #endif

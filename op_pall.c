@@ -17,3 +17,18 @@ void free_stack_t(stack_t *head)
 		free(head);
 	}
 }
+
+/**
+* pall - prints list
+* @head: the head of the list
+* Return: void
+*/
+void pall(stack_t **stack, unsigned int line_num)
+{
+	(void) line_num;
+
+	if ((*stack) == NULL)
+		return;
+	pall(&((*stack)->next), line_num);
+	printf("%i\n", (*stack)->n);
+}
