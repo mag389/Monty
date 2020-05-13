@@ -24,26 +24,27 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	printf("past first if in main\n");
-	filenum = fopen(argv[1], "r+");
+	filenum = fopen(argv[1], "r");
 	printf("the file is %s", argv[0]);
 	if (filenum == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (line > 0)
+	while ((l = getline(&linebuf, &n, filenum)) != -1)
 	{
 		printf("line number: %d: %d\n", line, l);
-		l = getline(&linebuf, &n, filenum) == -1;
+	/*	l = getline(&linebuf, &n, filenum) == -1;*/
 		printf("---l is %d\n", l);
 		if (l != -1 || l == 0)
 		{
 			opcode = strtok(linebuf, " \n\t\v\r\a");
 			f = get_op(opcode);
 			printf("past assigning function\n");
-			if (!f)/* take away later maybe*/
-				exit(EXIT_FAILURE);
-			f(&head, line);
+/*			if (!f)*//* take away later maybe*/
+			/*	exit(EXIT_FAILURE);*/
+			if (f)
+				f(&head, line);
 			printf("----. linebuf:%s> opcode:%s\n", linebuf, opcode);
 /*			if (linebuf)
 				free(linebuf);*/
@@ -58,5 +59,7 @@ int main(int argc, char *argv[])
 			line = 0;
 		}
 	}
+	free(linebuf);
+	printf("======at the end l is %d\n", l);
 	return (0);
 }
