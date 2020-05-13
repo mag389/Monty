@@ -59,6 +59,8 @@ int main(int argc, char *argv[])
 			line = 0;
 		}
 	}
+	fclose(filenum);
+	free_stack_t(head);
 	free(linebuf);
 	printf("======at the end l is %d\n", l);
 	return (0);
