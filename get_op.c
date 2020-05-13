@@ -10,14 +10,16 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 	instruction_t ops[] = {
 		{"push", push},
 		{"pall", pall},
-		{NULL, NULL},
-		{NULL, failure}
+		{"nop", NULL},
+		{"pint", pint},
+		{NULL, failure},
+		{NULL, NULL}
 	};
 	int i = 0;
 
 	if (op_code == NULL)
 		return (NULL);
-	while (i < 2)
+	while (i < 3)
 	{
 /*		printf("in the while in get_op\n");*/
 		if (strcmp(((ops + i))->opcode, op_code) == 0)
