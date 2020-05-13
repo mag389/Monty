@@ -49,4 +49,5 @@ int isnum(char *argnum);
 
 void free_stack_t(stack_t *head);
 void pall(stack_t **stack, unsigned int line_num);
+void failure(stack_t **stack, unsigned int line_num);
 #endif

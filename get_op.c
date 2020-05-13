@@ -10,7 +10,8 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 	instruction_t ops[] = {
 		{"push", push},
 		{"pall", pall},
-		{NULL, NULL}
+		{NULL, NULL},
+		{NULL, failure}
 	};
 	int i = 0;
 
@@ -31,5 +32,20 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 *			 line_number, opcode);
 *	FREE stack
 */
-	return (NULL);
+	return ((ops + 3)->f);
+}
+/**
+* failure - no function found
+* Return: void
+* @stack: the head node of the stack
+* @line_number: 
+*/
+void failure(stack_t **stack, unsigned int line_num)
+{
+	(void) line_num;
+	free_stack_t(*stack);
+
+	dprintf(STDERR_FILENO, "L%i: unknown instruction\n",
+		line_num);
+	exit(EXIT_FAILURE);
 }
