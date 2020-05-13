@@ -38,7 +38,7 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 * failure - no function found
 * Return: void
 * @stack: the head node of the stack
-* @line_number: 
+* @line_num: the line num
 */
 void failure(stack_t **stack, unsigned int line_num)
 {
