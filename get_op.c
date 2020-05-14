@@ -21,6 +21,8 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, failure},
 		{NULL, NULL}
 	};
@@ -30,7 +32,7 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 		return (NULL);
 	if (op_code[0] == '#')
 		return (NULL);
-	while (i < 13)
+	while (i < 15)
 	{
 /*		printf("in the while in get_op\n");*/
 		if (strcmp(((ops + i))->opcode, op_code) == 0)
@@ -45,7 +47,7 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 *			 line_number, opcode);
 *	FREE stack
 */
-	return ((ops + 13)->f);
+	return ((ops + 15)->f);
 }
 /**
 * failure - no function found
