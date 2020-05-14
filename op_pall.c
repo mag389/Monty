@@ -5,16 +5,16 @@
 * Return: nothing
 * @head: head node of the list
 */
-void free_stack_t(stack_t *head)
+void free_stack_t(stack_t **head)
 {
-	if (head == NULL)
+	if (head == NULL || *head == NULL)
 		return;
-	if (!head->next)
-		free(head);
+	if (!(*head)->next)
+		free(*head);
 	else
 	{
-		free_stack_t(head->next);
-		free(head);
+		free_stack_t(&((*head)->next));
+		free(*head);
 	}
 }
 
@@ -28,8 +28,11 @@ void pall(stack_t **stack, unsigned int line_num)
 {
 	(void) line_num;
 
-	if ((*stack) == NULL)
+	if (stack == NULL || (*stack) == NULL)
 		return;
-	pall(&((*stack)->next), line_num);
-	printf("%i\n", (*stack)->n);
+	else
+	{
+		pall(&((*stack)->next), line_num);
+		printf("%i\n", (*stack)->n);
+	}
 }

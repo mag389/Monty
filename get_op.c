@@ -12,6 +12,7 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 		{"pall", pall},
 		{"nop", NULL},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, failure},
 		{NULL, NULL}
 	};
@@ -19,7 +20,7 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 
 	if (op_code == NULL)
 		return (NULL);
-	while (i < 3)
+	while (i < 5)
 	{
 /*		printf("in the while in get_op\n");*/
 		if (strcmp(((ops + i))->opcode, op_code) == 0)
@@ -34,7 +35,7 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 *			 line_number, opcode);
 *	FREE stack
 */
-	return ((ops + 3)->f);
+	return ((ops + 5)->f);
 }
 /**
 * failure - no function found
@@ -45,7 +46,7 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 void failure(stack_t **stack, unsigned int line_num)
 {
 	(void) line_num;
-	free_stack_t(*stack);
+	free_stack_t(stack);
 
 	dprintf(STDERR_FILENO, "L%i: unknown instruction\n",
 		line_num);
