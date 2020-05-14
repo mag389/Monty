@@ -52,4 +52,5 @@ void pall(stack_t **stack, unsigned int line_num);
 void failure(stack_t **stack, unsigned int line_num);
 void pint(stack_t **stack, unsigned int line_num);
 void pop(stack_t **stack, unsigned int line_num);
+void swap(stack_t **stack, unsigned int line_num);
 #endif
