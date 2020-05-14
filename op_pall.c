@@ -30,9 +30,6 @@ void pall(stack_t **stack, unsigned int line_num)
 
 	if (stack == NULL || (*stack) == NULL)
 		return;
-	else
-	{
-		pall(&((*stack)->next), line_num);
-		printf("%i\n", (*stack)->n);
-	}
+	pall(&((*stack)->next), line_num);
+	printf("%i\n", (*stack)->n);
 }

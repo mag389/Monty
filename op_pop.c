@@ -18,13 +18,13 @@ void pop(stack_t **stack, unsigned int line_num)
 	}
 	else if ((*stack)->next != NULL)
 	{
-		printf("------in the first else in pop\n");
+/*		printf("------in the first else in pop\n");*/
 		pop(&((*stack)->next), line_num);
 		return;
 	}
 	else
 	{
-		printf("------- int the last else in pop\n");
+/*		printf("------- int the last else in pop\n");*/
 		if ((*stack)->prev)
 			tmp = (*stack)->prev;
 		free(*stack);
