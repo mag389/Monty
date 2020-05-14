@@ -18,6 +18,7 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 		{"sub", sub},
 		{"div", op_div},
 		{"mul", mul},
+		{"mod", mod},
 		{NULL, failure},
 		{NULL, NULL}
 	};
@@ -25,7 +26,7 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 
 	if (op_code == NULL)
 		return (NULL);
-	while (i < 10)
+	while (i < 11)
 	{
 /*		printf("in the while in get_op\n");*/
 		if (strcmp(((ops + i))->opcode, op_code) == 0)
@@ -40,7 +41,7 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 *			 line_number, opcode);
 *	FREE stack
 */
-	return ((ops + 10)->f);
+	return ((ops + 11)->f);
 }
 /**
 * failure - no function found
