@@ -26,6 +26,8 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 
 	if (op_code == NULL)
 		return (NULL);
+	if (op_code[0] == '#')
+		return (NULL);
 	while (i < 11)
 	{
 /*		printf("in the while in get_op\n");*/
