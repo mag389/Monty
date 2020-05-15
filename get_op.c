@@ -27,6 +27,7 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 		{NULL, NULL}
 	};
 	int i = 0;
+	unsigned int glin = gline_num;
 
 	if (op_code == NULL)
 		return (NULL);
@@ -42,11 +43,10 @@ void (*get_op(char *op_code))(stack_t **stack, unsigned int line_number)
 		}
 		i++;
 	}
-/*
-*	fprintf(STDERR_FILENO, "L%i: unknown instruction %s\n",
-*			 line_number, opcode);
-*	FREE stack
-*/
+
+	dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n",
+			 glin, op_code);
+	exit(EXIT_FAILURE);
 	return ((ops + 15)->f);
 }
 /**

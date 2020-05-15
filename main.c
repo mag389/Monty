@@ -1,5 +1,6 @@
 #include "monty.h"
 
+unsigned int gline_num = 1;
 /**
 * main - run the opcode file
 * Return: 0 success or exit value
@@ -8,7 +9,7 @@
 */
 int main(int argc, char *argv[])
 {
-	int line = 1, l;
+	int l;
 	FILE *filenum;
 	char *linebuf = NULL, *opcode;
 	size_t n = 0;
@@ -38,9 +39,9 @@ int main(int argc, char *argv[])
 			f = get_op(opcode);
 /*			printf("past assigning function\n");*/
 			if (f)
-				f(&head, line);
+				f(&head, gline_num);
 /*			printf("----. linebuf:%s> opcode:%s\n", linebuf, opcode);*/
-			line++;
+			gline_num++;
 		}
 	}
 	fclose(filenum);
