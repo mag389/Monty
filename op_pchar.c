@@ -20,7 +20,7 @@ void pchar(stack_t **stack, unsigned int line_num)
 		else
 		{
 			dprintf(STDERR_FILENO,
-				"L%i: can't pchar, value of of range\n",
+				"L%i: can't pchar, value out of range\n",
 				line_num);
 			exit(EXIT_FAILURE);
 		}
