@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	head = NULL;
 	if (argc != 2)
 	{
-		perror("USAGE: monty file\n");
+		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 /*	printf("past first if in main\n");*/
