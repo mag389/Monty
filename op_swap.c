@@ -12,7 +12,8 @@ void swap(stack_t **stack, unsigned int line_num)
 
 	if (stack == NULL || *stack == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%i: can't swap\n", line_num);
+		dprintf(STDERR_FILENO, "L%i: can't swap, stack too short\n",
+				line_num);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next)
@@ -28,7 +29,8 @@ void swap(stack_t **stack, unsigned int line_num)
 	}
 	else
 	{
-		dprintf(STDERR_FILENO, "L%i: can't swap\n", line_num);
+		dprintf(STDERR_FILENO, "L%i: can't swap, stack too short\n",
+			line_num);
 		exit(EXIT_FAILURE);
 	}
 }
