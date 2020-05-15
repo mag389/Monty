@@ -15,7 +15,7 @@ void pchar(stack_t **stack, unsigned int line_num)
 		exit(EXIT_FAILURE);
 	}
 	else if ((*stack)->next == NULL)
-		if ((*stack)->n < 128)
+		if ((*stack)->n < 128 && (*stack)->n >= 0)
 			printf("%c\n", (*stack)->n);
 		else
 		{
