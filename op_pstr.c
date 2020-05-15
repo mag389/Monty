@@ -31,7 +31,7 @@ void pstrfromtail(stack_t **stack, unsigned int line_num)
 {
 	(void) line_num;
 
-	if (((*stack)->n >= 128) || (*stack)->n == 0)
+	if (((*stack)->n >= 128) || (*stack)->n <= 0)
 	{
 		printf("\n");
 		return;
